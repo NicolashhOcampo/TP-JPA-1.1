@@ -79,13 +79,14 @@ public class Main {
 
             em.persist(factura1);
 
-            em.flush(); //Sirve para limpiar la conexion
 
-            em.getTransaction().commit(); //Se hace el commit del persist
+            em.flush();
 
-            em.close();
+            em.getTransaction().commit(); //Realizar commit
+
+            em.close(); //Cerrar conexión
         } catch(Exception e){
-            em.getTransaction().rollback(); //Si hay un error se hace un rollback
+            em.getTransaction().rollback();
             e.printStackTrace(System.out);
             System.out.println("ERROR");
         }
